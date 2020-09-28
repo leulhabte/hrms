@@ -6,8 +6,13 @@ const managers = require('./api/routes/manager');
 const applicant = require('./api/routes/applicant');
 const employee = require('./api/routes/employee');
 const reports = require('./api/routes/reports');
+const helmet = require('helmet');
+const compression = require('compression');
 
 const app = express();
+
+app.use(helmet());
+app.use(compression());
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
